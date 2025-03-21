@@ -1,5 +1,6 @@
 // src/modules/users/entities/user.entity.ts
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
+import { Group } from '../../groups/entities/group.entity';
 
 @Entity('users')
 export class User {
@@ -47,4 +48,7 @@ export class User {
 
   @Column({ nullable: true, type: 'timestamp with time zone' })
   last_login: Date;
+
+  @OneToMany(() => Group, group => group.owner)
+  ownedGroups: Group[];
 }

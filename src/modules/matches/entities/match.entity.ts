@@ -1,8 +1,9 @@
 // src/modules/matches/entities/match.entity.ts
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 import { MatchRegistration } from './match-registration.entity';
 import { MatchPair } from './match-pair.entity';
 import { MatchResult } from './match-result.entity';
+import { Group } from '../../groups/entities/group.entity';
 
 @Entity('matches')
 export class Match {
@@ -56,4 +57,8 @@ export class Match {
 
   @OneToMany(() => MatchResult, result => result.match)
   results: MatchResult[];
+
+  @ManyToOne(() => Group, group => group.matches)
+  @JoinColumn({ name: 'group_id' })
+  group: Group;  
 }

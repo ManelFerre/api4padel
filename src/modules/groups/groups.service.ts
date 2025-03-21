@@ -34,7 +34,7 @@ export class GroupsService {
       // Obtener todos los grupos públicos activos
       return this.groupsRepository.find({
         where: {
-          is_public: true,
+          isPublic: true,
           status: 'active',
         },
       });
@@ -132,7 +132,7 @@ export class GroupsService {
     const group = await this.findById(groupId);
     
     // Verificar que el grupo es público
-    if (!group.is_public) {
+    if (!group.isPublic) {
       throw new ForbiddenException('No se puede unir a un grupo privado sin invitación');
     }
     
