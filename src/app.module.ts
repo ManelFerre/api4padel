@@ -31,11 +31,8 @@ import { NotificationsModule } from './modules/notifications/notifications.modul
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: false, //configService.get('NODE_ENV') !== 'production',
         logging: configService.get('NODE_ENV') !== 'production',
-<<<<<<< HEAD
         migrations: [__dirname + '/migrations/**/*{.ts,.js}'],
         migrationsRun: true,
-=======
->>>>>>> 73a84cc324134a3cbeb184965df3cb152d70ab87
       }),
     }),
     UsersModule,
