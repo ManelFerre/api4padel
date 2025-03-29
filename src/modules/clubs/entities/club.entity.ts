@@ -2,10 +2,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
 import { Group } from '../../groups/entities/group.entity';
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 73a84cc324134a3cbeb184965df3cb152d70ab87
 @Entity('clubs')
 export class Club {
   @PrimaryGeneratedColumn('uuid')
