@@ -29,6 +29,12 @@ services:
   redis:
     image: redis:7-alpine
     restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}    
     volumes:
       - redis-data:/data
     networks:
